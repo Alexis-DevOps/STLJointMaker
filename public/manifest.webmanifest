@@ -1,0 +1,11 @@
+{
+  "name": "STL Joint Maker",
+  "short_name": "Joint Maker",
+  "description": "Draw gaskets and seals over a photo and export printable STL files.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#15191e",
+  "theme_color": "#15191e",
+  "icons": [{ "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml" }]
+}

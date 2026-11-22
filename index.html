@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Draw gaskets, O-rings and seals over a photo and export printable STL files. Works offline, nothing leaves your browser." />
+    <meta name="theme-color" content="#15191e" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <title>STL Joint Maker</title>
+  </head>
+  <body>
+    <div id="app">
+      <header class="topbar">
+        <div class="brand">
+          <img src="./favicon.svg" alt="" width="22" height="22" />
+          <span>STL Joint Maker</span>
+        </div>
+        <input id="projectName" class="project-name" type="text" data-i18n-aria="proj.name" />
+        <div class="tb-group">
+          <button id="btnProjects" type="button" data-i18n="top.projects"></button>
+          <button id="btnNew" type="button" data-i18n="top.new"></button>
+          <button id="btnOpen" type="button" data-i18n="top.open" data-i18n-title="top.openTitle"></button>
+          <button id="btnSave" type="button" data-i18n="top.save" data-i18n-title="top.saveTitle"></button>
+        </div>
+        <div class="tb-group">
+          <button id="btnUndo" type="button" class="icon" data-i18n-title="top.undo" data-icon="undo"></button>
+          <button id="btnRedo" type="button" class="icon" data-i18n-title="top.redo" data-icon="redo"></button>
+        </div>
+        <div class="spacer"></div>
+        <span id="saveState" class="muted small" aria-live="polite"></span>
+        <div class="lang" role="group" aria-label="Language">
+          <button type="button" data-lang="en">EN</button>
+          <button type="button" data-lang="fr">FR</button>
+        </div>
+        <button id="btnHelp" type="button" class="icon" data-i18n-title="top.help" data-icon="help"></button>
+      </header>
+
+      <nav id="toolbar" class="toolbar" aria-label="Tools"></nav>
+
+      <main id="canvasWrap" class="canvas-wrap">
+        <canvas id="canvas"></canvas>
+      </main>
+
+      <aside class="sidebar">
+        <section id="jointPanel" class="corner panel" aria-labelledby="jointTitle">
+          <h3 id="jointTitle" data-i18n="panel.joint"></h3>
+          <div id="preview" class="preview"></div>
+        </section>
+        <details class="panel" open>
+          <summary data-i18n="panel.parts"></summary>
+          <div id="partsPanel"></div>
+        </details>
+        <details class="panel" open>
+          <summary data-i18n="panel.props"></summary>
+          <div id="propsPanel"></div>
+        </details>
+        <details class="panel" open>
+          <summary data-i18n="panel.bg"></summary>
+          <div id="bgPanel"></div>
+        </details>
+        <details class="panel">
+          <summary data-i18n="panel.settings"></summary>
+          <div id="settingsPanel"></div>
+        </details>
+      </aside>
+
+      <footer class="statusbar">
+        <span id="coords" class="coords"></span>
+        <input id="coordInput" class="coord-input" type="text" autocomplete="off" spellcheck="false" data-i18n-aria="status.coordLabel" />
+        <span id="hint" class="hint"></span>
+        <label class="check"><input id="snapGrid" type="checkbox" /><span data-i18n="status.snapGrid"></span></label>
+        <label class="check"><input id="snapPoints" type="checkbox" /><span data-i18n="status.snapPoints"></span></label>
+      </footer>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
